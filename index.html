@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,shrink-to-fit=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <style>
+        .show{
+            width:250px;
+            border-radius: 4px;
+            padding:15px;
+            text-align: center;
+            background: #D9534F;
+            color:#fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<p id="show" class="show">打开loading</p>
+<br/>
+<br/>
+
+</body>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/loadBox.js"></script>
+<script>
+    //初始化
+    var loading = new loadingBox({
+        title:'请稍等！',//描述，可不写，默认为 请稍等
+        color:'#fff'//描述颜色，可不填，默认为 rgb(56, 142, 122)
+    });
+    $('#show').click(function(){
+        //显示load浮层
+        loading.showLoad('描述（可不写）');
+        var timer = setTimeout(function(){
+            //隐藏load浮层
+            loading.hideLoad();
+            clearTimeout(timer);
+        },3000);
+    });
+
+</script>
+
+</html>
